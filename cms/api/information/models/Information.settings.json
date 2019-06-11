@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "informacions",
+  "info": {
+    "name": "information",
+    "description": "Text, images and videos to attract clients to the hotel"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}

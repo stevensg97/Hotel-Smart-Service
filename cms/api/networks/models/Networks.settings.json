@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "networks",
+  "info": {
+    "name": "networks",
+    "description": "Social networks of the hotel."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "network": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

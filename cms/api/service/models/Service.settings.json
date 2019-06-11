@@ -1,0 +1,42 @@
+{
+  "connection": "default",
+  "collectionName": "services",
+  "info": {
+    "name": "service",
+    "description": "Services provided by the hotel such as swimming pools, spa, restaurants and others."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "airports": {
+      "collection": "airport",
+      "via": "service"
+    },
+    "beaches": {
+      "collection": "beach",
+      "via": "service"
+    },
+    "casinos": {
+      "collection": "casino",
+      "via": "service"
+    },
+    "groups": {
+      "collection": "group",
+      "via": "service"
+    },
+    "pools": {
+      "collection": "pool",
+      "via": "service"
+    },
+    "restaurants": {
+      "collection": "restaurant",
+      "via": "service"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "rooms",
+  "info": {
+    "name": "room",
+    "description": "Information of hotel rooms."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}

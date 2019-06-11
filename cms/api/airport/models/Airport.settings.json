@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "airports",
+  "info": {
+    "name": "airport",
+    "description": "Transportation from the airport to the hotel and vice versa."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "service": {
+      "model": "service",
+      "via": "airports"
+    }
+  }
+}

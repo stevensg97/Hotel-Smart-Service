@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "beaches",
+  "info": {
+    "name": "beach",
+    "description": "Beach where the hotel is located."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "service": {
+      "model": "service",
+      "via": "beaches"
+    }
+  }
+}

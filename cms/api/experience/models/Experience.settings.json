@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "experiences",
+  "info": {
+    "name": "experience",
+    "description": "Publications where clients can upload photos and comments along with a rating that evidences the experience during the stay."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "comentary": {
+      "type": "text"
+    },
+    "rating": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}

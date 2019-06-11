@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "casinos",
+  "info": {
+    "name": "casino",
+    "description": "Hotel casino."
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "service": {
+      "model": "service",
+      "via": "casinos"
+    }
+  }
+}
