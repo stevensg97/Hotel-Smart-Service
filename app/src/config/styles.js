@@ -1,6 +1,7 @@
 export const colors = {
-  white: '#ffffff',
+  white: '#F7F7F7',
   black: '#000000',
+  deepgreen: '#686d3b',
   grey: 'grey',
   transparent: 'transparent',
   placeholderColor: 'rgba(225,225,225,0.9)',

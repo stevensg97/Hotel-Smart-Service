@@ -35,12 +35,28 @@ export const NUMBER_OF_COLUMNS = 2;
 
 export const OPTIONS = {
   SMART_SHOWER: "Smart Shower",
-  SETTINGS: "Settings"
+  SETTINGS: "Settings",
+  INFORMATION: "Information",
+  ROOMS: "Rooms",
+  SERVICES: "Services",
+  ZONE: "Zone Info",
+  SOCIAL_NETWORKS: "Social Networks",
+  EXPERIENCES: "Experiences",
+  CONTACT: "Contact",
+  ACTIVITIES: "Activities"
 }
 
 export const OPTIONS_SCREENS = {
   SHOWER: "Shower",
-  SETTINGS: "Settings"
+  SETTINGS: "Settings",
+  INFORMATION: "Information",
+  ROOMS: "Rooms",
+  SERVICES: "Services",
+  ZONE: "Zone Info",
+  SOCIAL_NETWORKS: "Social Networks",
+  EXPERIENCES: "Experiences",
+  CONTACT: "Contact",
+  ACTIVITIES: "Activities"
 }
 
 export const PLACEHOLDERS = {

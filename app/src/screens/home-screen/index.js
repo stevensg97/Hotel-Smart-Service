@@ -10,6 +10,14 @@ import {
 } from 'react-native';
 import IconLogo from '../../assets/logo.png';
 import IconSettings from '../../assets/settings.png';
+import IconInformation from '../../assets/information.png';
+import IconRooms from '../../assets/rooms.png';
+import IconServices from '../../assets/services.png';
+import IconZone from '../../assets/zone.png';
+import IconNetworks from '../../assets/networks.png';
+import IconExperiences from '../../assets/experiences.png';
+import IconContact from '../../assets/contact.png';
+import IconActivities from '../../assets/activities.png';
 import {
   OPTIONS,
   OPTIONS_SCREENS,
@@ -18,9 +26,42 @@ import {
 } from '../../config/constants';
 import { colors } from '../../config/styles';
 
-const images = [IconLogo, IconSettings];
-const options = [OPTIONS.SMART_SHOWER, OPTIONS.SETTINGS];
-const optionsScreens = [OPTIONS_SCREENS.SHOWER, OPTIONS_SCREENS.SETTINGS];
+const images = [
+  IconLogo,
+  IconSettings,
+  IconInformation,
+  IconRooms,
+  IconServices,
+  IconZone,
+  IconNetworks,
+  IconExperiences,
+  IconContact,
+  IconActivities
+];
+const options = [
+  OPTIONS.SMART_SHOWER, 
+  OPTIONS.SETTINGS, 
+  OPTIONS.INFORMATION, 
+  OPTIONS.ROOMS, 
+  OPTIONS.SERVICES, 
+  OPTIONS.ZONE, 
+  OPTIONS.SOCIAL_NETWORKS, 
+  OPTIONS.EXPERIENCES, 
+  OPTIONS.CONTACT, 
+  OPTIONS.ACTIVITIES
+];
+const optionsScreens = [
+  OPTIONS_SCREENS.SHOWER, 
+  OPTIONS_SCREENS.SETTINGS,
+  OPTIONS_SCREENS.INFORMATION, 
+  OPTIONS_SCREENS.ROOMS, 
+  OPTIONS_SCREENS.SERVICES, 
+  OPTIONS_SCREENS.ZONE, 
+  OPTIONS_SCREENS.SOCIAL_NETWORKS, 
+  OPTIONS_SCREENS.EXPERIENCES, 
+  OPTIONS_SCREENS.CONTACT, 
+  OPTIONS_SCREENS.ACTIVITIES
+];
 
 export default class Home extends Component {
   static navigationOptions = {
@@ -38,7 +79,7 @@ export default class Home extends Component {
       return true;
     }); */
 
-    let items = Array.apply(null, Array(2)).map((v, i) => {
+    let items = Array.apply(null, Array(10)).map((v, i) => {
       return { id: i, src: images[i], option: options[i], optionScreen: optionsScreens[i] };
     });
     this.setState({
@@ -86,7 +127,7 @@ const styles = StyleSheet.create({
   },
   imageThumbnail: {
     alignItems: 'center',
-    borderColor: colors.black,
+    borderColor: colors.deepgreen,
     borderRadius: 8,
     borderWidth: 5,
     height: 100,
@@ -96,7 +137,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
   optionText: {
-    color: colors.black,
+    color: colors.deepgreen,
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 20,
