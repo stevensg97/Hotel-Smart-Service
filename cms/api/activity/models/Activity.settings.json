@@ -1,9 +1,9 @@
 {
   "connection": "default",
-  "collectionName": "services",
+  "collectionName": "activities",
   "info": {
-    "name": "service",
-    "description": "Services provided by the hotel such as swimming pools, spa, restaurants and others."
+    "name": "activity",
+    "description": "Activities insite of the hotel"
   },
   "options": {
     "increments": true,
@@ -21,9 +21,6 @@
       "model": "file",
       "via": "related",
       "plugin": "upload"
-    },
-    "type": {
-      "model": "type"
     }
   }
 }

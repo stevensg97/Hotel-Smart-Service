@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Ducha Inteligente",
-    "slug": "Ducha_Inteligente",
+    "name": "Hotel Smart Service",
+    "slug": "Hotel_Smart_Service",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -14,7 +14,7 @@
     "splash": {
       "image": "./src/assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F7F7F7"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

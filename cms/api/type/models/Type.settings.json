@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "types",
+  "info": {
+    "name": "type",
+    "description": "Types of the services"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

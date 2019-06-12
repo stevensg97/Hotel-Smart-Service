@@ -4,9 +4,9 @@ import { ScrollView, Image, Text, View, StyleSheet, FlatList } from "react-nativ
 import { SCREENS, VALUES } from "../../config/constants";
 import { colors } from "../../config/styles";
 
-export default class Information extends Component {
+export default class Contact extends Component {
   static navigationOptions = {
-    title: SCREENS.INFORMATION
+    title: SCREENS.CONTACT
   };
   constructor() {
     super();
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     flex: 1,
     justifyContent: "center",
-    marginBottom: 10
+    marginBottom: 5
   },
   title: {
     fontSize: 25,

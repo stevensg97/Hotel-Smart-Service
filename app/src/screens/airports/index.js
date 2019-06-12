@@ -1,12 +1,19 @@
 import React, { Component } from "react";
-import { ScrollView, Image, Text, View, StyleSheet, FlatList } from "react-native";
+import {
+  ScrollView,
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  FlatList
+} from "react-native";
 
-import { SCREENS, VALUES } from "../../config/constants";
+import { SCREENS, VALUES, OPTIONS } from "../../config/constants";
 import { colors } from "../../config/styles";
 
-export default class Information extends Component {
+export default class Airports extends Component {
   static navigationOptions = {
-    title: SCREENS.INFORMATION
+    title: SCREENS.AIRPORTS
   };
   constructor() {
     super();
@@ -14,7 +21,13 @@ export default class Information extends Component {
   }
 
   componentDidMount() {
-    let items = this.props.navigation.state.params.results;
+    let array = this.props.navigation.state.params.results;
+    let items = [];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].type.type == VALUES.AIRPORT) {
+        items.push(array[i]);
+      }
+    }
     this.setState({
       dataSource: items
     });
@@ -31,9 +44,9 @@ export default class Information extends Component {
               <Text style={styles.description}>{item.description}</Text>
               <Image
                 source={{
-                  uri: VALUES.URL+item.image.url.substring(1)
+                  uri: VALUES.URL + item.image.url.substring(1)
                 }}
-                resizeMode={'cover'}
+                resizeMode={"cover"}
                 style={styles.image}
               />
             </View>
@@ -51,7 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     flex: 1,
     justifyContent: "center",
-    marginBottom: 10
+    marginBottom: 5
   },
   title: {
     fontSize: 25,
@@ -62,7 +75,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 200
   }
 });
