@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/calendaries",
+      "handler": "Calendary.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/calendaries/count",
+      "handler": "Calendary.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/calendaries/:id",
+      "handler": "Calendary.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/calendaries",
+      "handler": "Calendary.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/calendaries/:id",
+      "handler": "Calendary.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/calendaries/:id",
+      "handler": "Calendary.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

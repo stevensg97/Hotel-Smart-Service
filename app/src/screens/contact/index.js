@@ -1,8 +1,18 @@
 import React, { Component } from "react";
-import { ScrollView, Image, Text, View, StyleSheet, FlatList } from "react-native";
+import {
+  ScrollView,
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  Linking
+} from "react-native";
 
 import { SCREENS, VALUES } from "../../config/constants";
 import { colors } from "../../config/styles";
+import IconLogo from "../../assets/logo.png";
 
 export default class Contact extends Component {
   static navigationOptions = {
@@ -27,15 +37,21 @@ export default class Contact extends Component {
           data={this.state.dataSource}
           renderItem={({ item }) => (
             <View style={styles.mainContainer}>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.description}>{item.description}</Text>
-              <Image
-                source={{
-                  uri: VALUES.URL+item.image.url.substring(1)
-                }}
-                resizeMode={'cover'}
-                style={styles.image}
-              />
+              <Text style={styles.title}>{item.name}</Text>
+              <Text style={styles.description}>{item.location}</Text>
+              <Text style={styles.description}>{item.phonenumber}</Text>
+              <Text style={styles.description}>{item.email}</Text>
+              <TouchableOpacity
+                style={styles.mainContainer}
+                onPress={() => Linking.openURL(item.webpage)}
+              >
+                <Text style={styles.description}>{VALUES.WEBPAGE}</Text>
+                <Image
+                  source={IconLogo}
+                  resizeMode={"cover"}
+                  style={styles.image}
+                />
+              </TouchableOpacity>
             </View>
           )}
           keyExtractor={(item, index) => index.toString()}
@@ -58,11 +74,11 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   description: {
-    fontSize: 15,
+    fontSize: 20,
     marginBottom: 5
   },
   image: {
-    width: '100%',
-    height: 200
+    width: 128,
+    height: 128
   }
 });

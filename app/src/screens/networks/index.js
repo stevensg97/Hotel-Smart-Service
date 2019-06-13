@@ -1,10 +1,19 @@
 import React, { Component } from "react";
-import { ScrollView, Image, Text, View, StyleSheet, FlatList } from "react-native";
+import {
+  ScrollView,
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  Linking
+} from "react-native";
 
 import { SCREENS, VALUES } from "../../config/constants";
 import { colors } from "../../config/styles";
 
-export default class Information extends Component {
+export default class Networks extends Component {
   static navigationOptions = {
     title: SCREENS.NETWORKS
   };
@@ -27,15 +36,17 @@ export default class Information extends Component {
           data={this.state.dataSource}
           renderItem={({ item }) => (
             <View style={styles.mainContainer}>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.description}>{item.description}</Text>
-              <Image
-                source={{
-                  uri: VALUES.URL+item.image.url.substring(1)
-                }}
-                resizeMode={'cover'}
-                style={styles.image}
-              />
+              <Text style={styles.title}>{item.network}</Text>
+              {/* <Text style={styles.description}>{item.link}</Text> */}
+              <TouchableOpacity onPress={() => Linking.openURL(item.link)}>
+                <Image
+                  source={{
+                    uri: VALUES.URL + item.image.url.substring(1)
+                  }}
+                  resizeMode={"cover"}
+                  style={styles.image}
+                />
+              </TouchableOpacity>
             </View>
           )}
           keyExtractor={(item, index) => index.toString()}
@@ -62,7 +73,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   image: {
-    width: '100%',
-    height: 200
+    width: 64,
+    height: 64
   }
 });

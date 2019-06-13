@@ -8,6 +8,10 @@ import RoomsScreen from './src/screens/rooms';
 import ServicesScreen from './src/screens/services';
 import AirportsScreen from './src/screens/airports';
 import CasinosScreen from './src/screens/casinos';
+import BeachesScreen from './src/screens/beaches';
+import GroupsScreen from './src/screens/groups';
+import PoolsScreen from './src/screens/pools';
+import RestaurantsScreen from './src/screens/restaurants';
 import ZoneScreen from './src/screens/zone';
 import NetworksScreen from './src/screens/networks';
 import ExperiencesScreen from './src/screens/experiences';
@@ -23,6 +27,10 @@ const App = createStackNavigator({
   Services: {screen: ServicesScreen},
   Airports: {screen: AirportsScreen},
   Casinos: {screen: CasinosScreen},
+  Beaches: {screen: BeachesScreen},
+  Groups: {screen: GroupsScreen},
+  Pools: {screen: PoolsScreen},
+  Restaurants: {screen: RestaurantsScreen},
   Zone: {screen: ZoneScreen},
   Networks: {screen: NetworksScreen},
   Experiences: {screen: ExperiencesScreen},

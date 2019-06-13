@@ -1,0 +1,28 @@
+{
+  "connection": "default",
+  "collectionName": "calendaries",
+  "info": {
+    "name": "calendary",
+    "description": "Calendary of activities"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "activity": {
+      "model": "activity"
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "service": {
+      "model": "service"
+    }
+  }
+}
