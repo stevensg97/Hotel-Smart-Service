@@ -47,10 +47,6 @@
     "guestOrganization": {
       "type": "string"
     },
-    "roooms": {
-      "collection": "room",
-      "via": "book"
-    },
     "checkin": {
       "type": "string"
     },
@@ -58,6 +54,9 @@
       "type": "string"
     },
     "guestArrivalTime": {
+      "type": "string"
+    },
+    "room": {
       "type": "string"
     }
   }

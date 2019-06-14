@@ -30,10 +30,6 @@
     },
     "maxCapacity": {
       "type": "integer"
-    },
-    "book": {
-      "model": "book",
-      "via": "roooms"
     }
   }
 }
