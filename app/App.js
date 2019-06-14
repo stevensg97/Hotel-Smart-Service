@@ -1,8 +1,6 @@
 import {createStackNavigator} from 'react-navigation';
 
-//import LoginScreen from './src/screens/login-screen';
-//import SignInScreen from './src/screens/signin-screen';
-import HomeScreen from './src/screens/home-screen';
+import HomeScreen from './src/screens/home';
 import InformationScreen from './src/screens/information';
 import RoomsScreen from './src/screens/rooms';
 import ServicesScreen from './src/screens/services';
@@ -14,13 +12,14 @@ import PoolsScreen from './src/screens/pools';
 import RestaurantsScreen from './src/screens/restaurants';
 import ZoneScreen from './src/screens/zone';
 import NetworksScreen from './src/screens/networks';
+import BookScreen from './src/screens/book';
 import ExperiencesScreen from './src/screens/experiences';
 import ContactScreen from './src/screens/contact';
 import ActivitiesScreen from './src/screens/activities';
+import SignInScreen from './src/screens/signin';
+import CreateExperienceScreen from './src/screens/create-experience';
 
 const App = createStackNavigator({
-  //Login: {screen: LoginScreen},
-  //SignIn: {screen: SignInScreen},
   Home: {screen: HomeScreen},
   Information: {screen: InformationScreen},
   Rooms: {screen: RoomsScreen},
@@ -33,10 +32,13 @@ const App = createStackNavigator({
   Restaurants: {screen: RestaurantsScreen},
   Zone: {screen: ZoneScreen},
   Networks: {screen: NetworksScreen},
+  Book: {screen: BookScreen},
   Experiences: {screen: ExperiencesScreen},
   Contact: {screen: ContactScreen},
   Rooms: {screen: RoomsScreen},
-  Activities: {screen: ActivitiesScreen}
+  Activities: {screen: ActivitiesScreen},
+  SignIn: {screen: SignInScreen},
+  CreateExperience: {screen: CreateExperienceScreen},
 })
 
 export default App

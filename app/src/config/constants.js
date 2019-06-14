@@ -10,8 +10,9 @@ export const BUTTONS = {
   SIGNIN: 'Sign In',
   FORGOT: 'Forgot your password?',
   LANGUAGE: 'Language',
+  CREATE_EXPERIENCE: 'Create Experience',
   STATISTICS: 'Statistics',
-  CALENDARY: 'Calendary',
+  CALENDAR: 'Calendar',
   LOGOUT: 'Log Out',
   ABOUT: 'About',
   WATER_LEVEL: 'Water Level',
@@ -30,6 +31,8 @@ export const BUTTONS = {
   CONFIRM: 'Confirm',
   CANCEL: 'Cancel',
   OK: 'OK',
+  CHECK_WEATHER: 'Check Weather',
+  BOOK: 'Book',
 }
 
 export const NUMBER_OF_COLUMNS = 2;
@@ -43,17 +46,19 @@ export const OPTIONS = {
   AIRPORTS: "Airports",
   CASINOS: "Casinos",
   BEACHES: "Beaches",
-  Groups: "Groups",
+  GROUPS: "Groups",
   POOLS: "Pools",
   RESTAURANTS: "Restaurants",
   ZONE: "Zone Info",
   NETWORKS: "Social Networks",
+  BOOK: "Book",
   EXPERIENCES: "Experiences",
   CONTACT: "Contact",
   ACTIVITIES: "Activities"
 }
 
 export const OPTIONS_SCREENS = {
+  HOME: 'Home',
   SHOWER: "Shower",
   SETTINGS: "Settings",
   INFORMATION: "Information",
@@ -67,9 +72,11 @@ export const OPTIONS_SCREENS = {
   RESTAURANTS: "Restaurants",
   ZONE: "Zone",
   NETWORKS: "Networks",
+  BOOK: "Book",
   EXPERIENCES: "Experiences",
   CONTACT: "Contact",
-  ACTIVITIES: "Activities"
+  ACTIVITIES: "Activities",
+  CREATE_EXPERIENCE: "CreateExperience"
 }
 
 export const PLACEHOLDERS = {
@@ -79,7 +86,8 @@ export const PLACEHOLDERS = {
   PASSWORD: 'Password',
   CHECK_PASSWORD: 'Check password',
   INITIAL_DATE: 'Initial date',
-  FINAL_DATE: 'Final date'
+  FINAL_DATE: 'Final date',
+  DATE: 'Date'
 }
 
 export const SCREENS = {
@@ -97,9 +105,11 @@ export const SCREENS = {
   RESTAURANTS: "Restaurants",
   ZONE: "Zone",
   NETWORKS: "Social Networks",
+  BOOK: "Book",
   EXPERIENCES: "Experiences",
   CONTACT: "Contact",
   ACTIVITIES: "Activities",
+  CREATE_EXPERIENCE: 'Create Experience',
   SHOWER: "Smart Shower",
   SETTINGS: "Settings",
   STATISTICS: "Statistics",
@@ -107,10 +117,11 @@ export const SCREENS = {
 }
 
 export const VALUES = {
-  URL: 'http://192.168.100.10:1337/',
+  URL: 'http://192.168.100.5:1337/',
   DATE_API_URL: 'http://worldclockapi.com/api/json/est/now',
   WEBPAGE: 'Web Page',
   DATE: 'Date: ',
+  DATE_MODE: 'date',
   DESCRIPTION: 'Description: ',
   PLACE: 'Place: ',
   DATE_FORMAT: 'MM-DD-YYYY',
@@ -126,19 +137,22 @@ export const VALUES = {
   GROUPS: "groups",
   POOLS: "pools",
   RESTAURANTS: "restaurants",
-  CALENDARIES: "calendaries",
+  CALENDARS: "calendars",
+  CLIENTS: 'clients',
   AIRPORT: "Airport",
   CASINO: "Casino",
   BEACH: "Beach",
   GROUP: "Group",
   POOL: "Pool",
-  RESTAURANT: "Restaurant",
   ZONE: "zones",
   NETWORKS: "networks",
   EXPERIENCES: "experiences",
   CONTACT: "contacts",
   ACTIVITIES: "activities",
+  RESTAURANT: "Restaurant",
   EMAIL: 'email',
-  ERROR: 'Error'
-
+  ERROR: 'Error',
+  RATING: 'Rating: ',
+  SELECT_DATE: 'Select the date to consult',
+  WEATHER: 'Weather'
 }

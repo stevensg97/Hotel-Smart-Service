@@ -17,10 +17,14 @@
     "rating": {
       "type": "string"
     },
+    "name": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
     "image": {
-      "model": "file",
-      "via": "related",
-      "plugin": "upload"
+      "type": "string"
     }
   }
 }

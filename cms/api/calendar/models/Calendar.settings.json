@@ -2,8 +2,8 @@
   "connection": "default",
   "collectionName": "calendaries",
   "info": {
-    "name": "calendary",
-    "description": "Calendary of activities"
+    "name": "calendar",
+    "description": "Calendar of activities"
   },
   "options": {
     "increments": true,

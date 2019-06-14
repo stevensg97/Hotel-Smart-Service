@@ -37,7 +37,6 @@ export default class Networks extends Component {
           renderItem={({ item }) => (
             <View style={styles.mainContainer}>
               <Text style={styles.title}>{item.network}</Text>
-              {/* <Text style={styles.description}>{item.link}</Text> */}
               <TouchableOpacity onPress={() => Linking.openURL(item.link)}>
                 <Image
                   source={{

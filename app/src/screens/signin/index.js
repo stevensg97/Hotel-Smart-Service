@@ -40,7 +40,7 @@ export default class SignIn extends Component {
     this.setState({ isLoading: true })
     if (this.state.passwordString == this.state.checkPasswordString) {
       try {
-        let response = await fetch(VALUES.URL+VALUES.USERS, {
+        let response = await fetch(VALUES.URL+VALUES.CLIENTS, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -59,7 +59,7 @@ export default class SignIn extends Component {
           BUTTONS.SIGNIN,
           ALERTS.SIGNIN_SUCCESS,
           [{ text: BUTTONS.OK,
-            onPress: () => this.props.navigation.navigate(SCREENS.LOGIN)}],
+            onPress: () => this.props.navigation.navigate(SCREENS.HOME)}],
           { cancelable: false }
         );
         return responseJson.result;

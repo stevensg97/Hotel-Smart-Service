@@ -1,8 +1,8 @@
-/* global Calendary */
+/* global Calendar */
 'use strict';
 
 /**
- * Calendary.js service
+ * Calendar.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -18,43 +18,43 @@ const { convertRestQueryParams, buildQuery } = require('strapi-utils');
 module.exports = {
 
   /**
-   * Promise to fetch all calendaries.
+   * Promise to fetch all calendars.
    *
    * @return {Promise}
    */
 
   fetchAll: (params, populate) => {
     // Select field to populate.
-    const withRelated = populate || Calendary.associations
+    const withRelated = populate || Calendar.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
     const filters = convertRestQueryParams(params);
 
-    return Calendary.query(buildQuery({ model: Calendary, filters }))
+    return Calendar.query(buildQuery({ model: Calendar, filters }))
       .fetchAll({ withRelated })
       .then(data => data.toJSON());
   },
 
   /**
-   * Promise to fetch a/an calendary.
+   * Promise to fetch a/an calendar.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Calendary.associations
+    const populate = Calendar.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Calendary.forge(_.pick(params, 'id')).fetch({
+    return Calendar.forge(_.pick(params, 'id')).fetch({
       withRelated: populate
     });
   },
 
   /**
-   * Promise to count a/an calendary.
+   * Promise to count a/an calendar.
    *
    * @return {Promise}
    */
@@ -63,54 +63,54 @@ module.exports = {
     // Convert `params` object to filters compatible with Bookshelf.
     const filters = convertRestQueryParams(params);
 
-    return Calendary.query(buildQuery({ model: Calendary, filters: _.pick(filters, 'where') })).count();
+    return Calendar.query(buildQuery({ model: Calendar, filters: _.pick(filters, 'where') })).count();
   },
 
   /**
-   * Promise to add a/an calendary.
+   * Promise to add a/an calendar.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Calendary.associations.map(ast => ast.alias));
-    const data = _.omit(values, Calendary.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Calendar.associations.map(ast => ast.alias));
+    const data = _.omit(values, Calendar.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Calendary.forge(data).save();
+    const entry = await Calendar.forge(data).save();
 
     // Create relational data and return the entry.
-    return Calendary.updateRelations({ id: entry.id , values: relations });
+    return Calendar.updateRelations({ id: entry.id , values: relations });
   },
 
   /**
-   * Promise to edit a/an calendary.
+   * Promise to edit a/an calendar.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Calendary.associations.map(ast => ast.alias));
-    const data = _.omit(values, Calendary.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Calendar.associations.map(ast => ast.alias));
+    const data = _.omit(values, Calendar.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Calendary.forge(params).save(data);
+    const entry = await Calendar.forge(params).save(data);
 
     // Create relational data and return the entry.
-    return Calendary.updateRelations(Object.assign(params, { values: relations }));
+    return Calendar.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an calendary.
+   * Promise to remove a/an calendar.
    *
    * @return {Promise}
    */
 
   remove: async (params) => {
     params.values = {};
-    Calendary.associations.map(association => {
+    Calendar.associations.map(association => {
       switch (association.nature) {
         case 'oneWay':
         case 'oneToOne':
@@ -127,41 +127,41 @@ module.exports = {
       }
     });
 
-    await Calendary.updateRelations(params);
+    await Calendar.updateRelations(params);
 
-    return Calendary.forge(params).destroy();
+    return Calendar.forge(params).destroy();
   },
 
   /**
-   * Promise to search a/an calendary.
+   * Promise to search a/an calendar.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('calendary', params);
+    const filters = strapi.utils.models.convertParams('calendar', params);
     // Select field to populate.
-    const populate = Calendary.associations
+    const populate = Calendar.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    const associations = Calendary.associations.map(x => x.alias);
-    const searchText = Object.keys(Calendary._attributes)
-      .filter(attribute => attribute !== Calendary.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['string', 'text'].includes(Calendary._attributes[attribute].type));
+    const associations = Calendar.associations.map(x => x.alias);
+    const searchText = Object.keys(Calendar._attributes)
+      .filter(attribute => attribute !== Calendar.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['string', 'text'].includes(Calendar._attributes[attribute].type));
 
-    const searchInt = Object.keys(Calendary._attributes)
-      .filter(attribute => attribute !== Calendary.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['integer', 'decimal', 'float'].includes(Calendary._attributes[attribute].type));
+    const searchInt = Object.keys(Calendar._attributes)
+      .filter(attribute => attribute !== Calendar.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['integer', 'decimal', 'float'].includes(Calendar._attributes[attribute].type));
 
-    const searchBool = Object.keys(Calendary._attributes)
-      .filter(attribute => attribute !== Calendary.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['boolean'].includes(Calendary._attributes[attribute].type));
+    const searchBool = Object.keys(Calendar._attributes)
+      .filter(attribute => attribute !== Calendar.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['boolean'].includes(Calendar._attributes[attribute].type));
 
     const query = (params._q || '').replace(/[^a-zA-Z0-9.-\s]+/g, '');
 
-    return Calendary.query(qb => {
+    return Calendar.query(qb => {
       if (!_.isNaN(_.toNumber(query))) {
         searchInt.forEach(attribute => {
           qb.orWhereRaw(`${attribute} = ${_.toNumber(query)}`);
@@ -175,7 +175,7 @@ module.exports = {
       }
 
       // Search in columns with text using index.
-      switch (Calendary.client) {
+      switch (Calendar.client) {
         case 'mysql':
           qb.orWhereRaw(`MATCH(${searchText.join(',')}) AGAINST(? IN BOOLEAN MODE)`, `*${query}*`);
           break;

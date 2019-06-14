@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Calendary` model.
+ * Lifecycle callbacks for the `Calendar` model.
  */
 
 module.exports = {

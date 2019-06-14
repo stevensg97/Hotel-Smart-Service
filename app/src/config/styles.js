@@ -1,5 +1,6 @@
 export const colors = {
   white: '#F7F7F7',
+  purewhite: '#FFFFFF',
   black: '#000000',
   deepgreen: '#686d3b',
   grey: 'grey',
@@ -10,9 +11,10 @@ export const colors = {
 
 export const commonStyles = {
   buttonContainer: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.deepgreen,
     borderRadius: 15,
     paddingVertical: 15,
+    margin: 5
   },
   buttonText: {
     color: colors.white,

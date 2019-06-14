@@ -26,15 +26,15 @@ export default class Activities extends Component {
     super();
     this.state = {
       visible: false,
-      calendary: []
+      calendar: []
     };
   }
 
-  _onCalendaryPressed = async () => {
+  _onCalendarPressed = async () => {
     try {
-      let response = await fetch(VALUES.URL + VALUES.CALENDARIES);
+      let response = await fetch(VALUES.URL + VALUES.CALENDARS);
       let responseJson = await response.json();
-      this.setState({calendary: []})
+      this.setState({ calendar: [] });
       let array = [];
       for (var i = 0; i < responseJson.length; i++) {
         array[i] = {
@@ -42,12 +42,12 @@ export default class Activities extends Component {
           date: responseJson[i].date,
           description: responseJson[i].description,
           place: responseJson[i].service.title
-        }
+        };
       }
-      this.setState({calendary: array})
+      this.setState({ calendar: array });
       this.setState({ visible: true });
     } catch (error) {
-      Alert.alert(BUTTONS.CALENDARY, ALERTS.FAILURE, [{ text: BUTTONS.OK }], {
+      Alert.alert(BUTTONS.CALENDAR, ALERTS.FAILURE, [{ text: BUTTONS.OK }], {
         cancelable: false
       });
     }
@@ -63,9 +63,9 @@ export default class Activities extends Component {
   render() {
     return (
       <ScrollView>
-        <TouchableOpacity onPress={() => this._onCalendaryPressed()}>
+        <TouchableOpacity onPress={() => this._onCalendarPressed()}>
           <View style={styles.mainContainer}>
-            <Text style={styles.title}>{BUTTONS.CALENDARY}</Text>
+            <Text style={styles.title}>{BUTTONS.CALENDAR}</Text>
           </View>
         </TouchableOpacity>
         <Dialog
@@ -86,18 +86,24 @@ export default class Activities extends Component {
               slideFrom: "bottom"
             })
           }
-          dialogTitle={<DialogTitle title={BUTTONS.CALENDARY} />}
+          dialogTitle={<DialogTitle title={BUTTONS.CALENDAR} />}
         >
           <DialogContent style={styles.dialogContainer}>
             <ScrollView>
               <FlatList
-                data={this.state.calendary}
+                data={this.state.calendar}
                 renderItem={({ item }) => (
                   <View style={styles.activityContainer}>
                     <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.description}>{VALUES.DATE + item.date}</Text>
-                    <Text style={styles.description}>{VALUES.DESCRIPTION + item.description}</Text>
-                    <Text style={styles.description}>{VALUES.PLACE + item.place}</Text>
+                    <Text style={styles.description}>
+                      {VALUES.DATE + item.date}
+                    </Text>
+                    <Text style={styles.description}>
+                      {VALUES.DESCRIPTION + item.description}
+                    </Text>
+                    <Text style={styles.description}>
+                      {VALUES.PLACE + item.place}
+                    </Text>
                   </View>
                 )}
                 keyExtractor={(item, index) => index.toString()}
