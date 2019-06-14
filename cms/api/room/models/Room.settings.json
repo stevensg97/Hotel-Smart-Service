@@ -21,6 +21,15 @@
       "model": "file",
       "via": "related",
       "plugin": "upload"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "minCapacity": {
+      "type": "integer"
+    },
+    "maxCapacity": {
+      "type": "integer"
     }
   }
 }

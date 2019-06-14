@@ -29,7 +29,7 @@ import {
   OPTIONS_SCREENS
 } from "../../config/constants";
 import IconLogo from "../../assets/logo.png";
-import { colors } from "../../config/styles";
+import { colors, commonStyles } from "../../config/styles";
 
 export default class Experiences extends Component {
   static navigationOptions = {
@@ -62,12 +62,14 @@ export default class Experiences extends Component {
         ) {
           this.setState({ isLoading: false });
           this.setState({ visible: false });
-          this.props.navigation.navigate(OPTIONS_SCREENS.CREATE_EXPERIENCE, {name: responseJson[i].name,
-          lastname: responseJson[i].lastname});
+          this.props.navigation.navigate(OPTIONS_SCREENS.CREATE_EXPERIENCE, {
+            name: responseJson[i].name,
+            lastname: responseJson[i].lastname
+          });
           this.setState({ emailString: "" });
           this.setState({ passwordString: "" });
           break;
-        } else if(i+1 == responseJson.length) {
+        } else if (i + 1 == responseJson.length) {
           this.setState({ isLoading: false });
           Alert.alert(SCREENS.LOGIN, ALERTS.WRONG, [{ text: BUTTONS.OK }], {
             cancelable: false
@@ -103,23 +105,22 @@ export default class Experiences extends Component {
   componentDidMount() {
     let items = this.props.navigation.state.params.results;
     for (let i = 0; i < items.length; i++) {
-      if (items[i].rating == 'UNKNOWN' || items[i].rating == 'VERY_UNLIKELY') {
-        items[i].rating = '\u2606'
-      } else if(items[i].rating == 'UNLIKELY'){
-        items[i].rating = '\u2606\u2606'
-      }else if(items[i].rating == 'POSSIBLE'){
-        items[i].rating = '\u2606\u2606\u2606'
-      }else if(items[i].rating == 'LIKELY'){
-        items[i].rating = '\u2606\u2606\u2606\u2606'
-      }else if(items[i].rating == 'VERY_LIKELY'){
-        items[i].rating = '\u2606\u2606\u2606\u2606\u2606'
+      if (items[i].rating == "UNKNOWN" || items[i].rating == "VERY_UNLIKELY") {
+        items[i].rating = "\u2606";
+      } else if (items[i].rating == "UNLIKELY") {
+        items[i].rating = "\u2606\u2606";
+      } else if (items[i].rating == "POSSIBLE") {
+        items[i].rating = "\u2606\u2606\u2606";
+      } else if (items[i].rating == "LIKELY") {
+        items[i].rating = "\u2606\u2606\u2606\u2606";
+      } else if (items[i].rating == "VERY_LIKELY") {
+        items[i].rating = "\u2606\u2606\u2606\u2606\u2606";
       }
-
     }
     this.setState({
       dataSource: items
     });
-  };
+  }
 
   render() {
     const spinner = this.state.isLoading ? (
@@ -128,10 +129,11 @@ export default class Experiences extends Component {
     return (
       <View>
         <ScrollView>
-          <TouchableOpacity onPress={() => this._onCreateExperiencePressed()}>
-            <View style={styles.mainContainer}>
-              <Text style={styles.title}>{BUTTONS.CREATE_EXPERIENCE}</Text>
-            </View>
+          <TouchableOpacity
+            onPress={() => this._onCreateExperiencePressed()}
+            style={styles.buttonContainer}
+          >
+            <Text style={styles.buttonText}>{BUTTONS.CREATE_EXPERIENCE}</Text>
           </TouchableOpacity>
           <Dialog
             visible={this.state.visible}
@@ -146,7 +148,7 @@ export default class Experiences extends Component {
                 <DialogButton
                   text="Accept"
                   onPress={() => {
-                   this._onLoginPressed();
+                    this._onLoginPressed();
                   }}
                 />
               </DialogFooter>
@@ -220,7 +222,9 @@ export default class Experiences extends Component {
                 <Text style={styles.title}>
                   {item.name + " " + item.lastname}
                 </Text>
-                <Text style={styles.description}>{item.comentary}</Text>
+                <Text style={styles.description}>
+                  {'"' + item.comentary + '"'}
+                </Text>
                 <Text style={styles.description}>
                   {VALUES.RATING + item.rating}
                 </Text>
@@ -282,6 +286,8 @@ const styles = StyleSheet.create({
     margin: 6,
     textAlign: "center"
   },
+  buttonContainer: commonStyles.buttonContainer,
+  buttonText: commonStyles.buttonText,
   mainContainer: {
     alignItems: "center",
     backgroundColor: colors.white,
@@ -305,7 +311,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   description: {
-    fontSize: 15,
+    fontSize: 18,
     marginBottom: 5
   },
   image: {

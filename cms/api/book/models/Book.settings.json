@@ -1,0 +1,62 @@
+{
+  "connection": "default",
+  "collectionName": "books",
+  "info": {
+    "name": "book",
+    "description": "Booking information"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "checkin": {
+      "required": true,
+      "type": "date"
+    },
+    "checkout": {
+      "required": true,
+      "type": "date"
+    },
+    "adults": {
+      "type": "integer",
+      "required": true
+    },
+    "children": {
+      "type": "integer",
+      "required": true
+    },
+    "infants": {
+      "type": "integer",
+      "required": true
+    },
+    "promocode": {
+      "type": "string"
+    },
+    "total": {
+      "type": "integer"
+    },
+    "guestFirstname": {
+      "required": true,
+      "type": "string"
+    },
+    "guestLastname": {
+      "required": true,
+      "type": "string"
+    },
+    "guestEmail": {
+      "required": true,
+      "type": "email"
+    },
+    "guestComentary": {
+      "type": "text"
+    },
+    "guestArrivalTime": {
+      "type": "date"
+    },
+    "guestOrganization": {
+      "type": "string"
+    }
+  }
+}

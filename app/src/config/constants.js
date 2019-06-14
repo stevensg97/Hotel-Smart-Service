@@ -117,7 +117,8 @@ export const SCREENS = {
 }
 
 export const VALUES = {
-  URL: 'http://192.168.100.5:1337/',
+  //URL: 'http://192.168.100.5:1337/',
+  URL: 'https://tamarindodiria.serveo.net/',
   DATE_API_URL: 'http://worldclockapi.com/api/json/est/now',
   WEBPAGE: 'Web Page',
   DATE: 'Date: ',

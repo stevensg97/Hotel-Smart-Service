@@ -17,12 +17,7 @@ import { Constants, ImagePicker, Permissions } from "expo";
 import uuid from "uuid";
 import Environment from "../../config/environment";
 import firebase from "../../utils/firebase";
-import {
-  SCREENS,
-  VALUES,
-  BUTTONS,
-  ALERTS,
-} from "../../config/constants";
+import { SCREENS, VALUES, BUTTONS, ALERTS } from "../../config/constants";
 import { colors, commonStyles } from "../../config/styles";
 
 console.disableYellowBox = true;

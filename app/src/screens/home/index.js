@@ -7,9 +7,10 @@ import {
   Image,
   TouchableOpacity,
   ActivityIndicator,
-  Alert
+  Alert,
+  ImageBackground
 } from "react-native";
-//import IconLogo from '../../assets/logo.png';
+import IconLogoBackground from '../../assets/logoBackground.png';
 //import IconSettings from '../../assets/settings.png';
 import IconInformation from "../../assets/information.png";
 import IconRooms from "../../assets/rooms.png";
@@ -32,8 +33,6 @@ import {
 import { colors } from "../../config/styles";
 
 const images = [
-  //IconLogo,
-  //IconSettings,
   IconInformation,
   IconRooms,
   IconServices,
@@ -119,7 +118,6 @@ export default class Home extends Component {
     try {
       let response = await fetch(VALUES.URL + route);
       let responseJson = await response.json();
-      //console.log(responseJson);
       this.setState({ isLoading: false });
       this.props.navigation.navigate(screen, { results: responseJson });
     } catch (error) {
@@ -137,7 +135,7 @@ export default class Home extends Component {
     ) : null;
 
     return (
-      <View style={styles.mainContainer}>
+      <ImageBackground source={IconLogoBackground} style={styles.mainContainer}>
         <FlatList
           data={this.state.dataSource}
           renderItem={({ item }) => (
@@ -154,7 +152,7 @@ export default class Home extends Component {
           keyExtractor={(item, index) => index}
         />
         {spinner}
-      </View>
+      </ImageBackground>
     );
   }
 }

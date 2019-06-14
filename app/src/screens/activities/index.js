@@ -16,7 +16,7 @@ import Dialog, {
   DialogContent
 } from "react-native-popup-dialog";
 import { SCREENS, VALUES, BUTTONS, ALERTS } from "../../config/constants";
-import { colors } from "../../config/styles";
+import { colors, commonStyles } from "../../config/styles";
 
 export default class Activities extends Component {
   static navigationOptions = {
@@ -62,73 +62,76 @@ export default class Activities extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <TouchableOpacity onPress={() => this._onCalendarPressed()}>
-          <View style={styles.mainContainer}>
-            <Text style={styles.title}>{BUTTONS.CALENDAR}</Text>
-          </View>
-        </TouchableOpacity>
-        <Dialog
-          visible={this.state.visible}
-          footer={
-            <DialogButton
-              text="OK"
-              onPress={() => {
-                this.setState({ visible: false });
-              }}
-            />
-          }
-          onTouchOutside={() => {
-            this.setState({ visible: false });
-          }}
-          dialogAnimation={
-            new SlideAnimation({
-              slideFrom: "bottom"
-            })
-          }
-          dialogTitle={<DialogTitle title={BUTTONS.CALENDAR} />}
+      <View>
+        <TouchableOpacity
+          onPress={() => this._onCalendarPressed()}
+          style={styles.buttonContainer}
         >
-          <DialogContent style={styles.dialogContainer}>
-            <ScrollView>
-              <FlatList
-                data={this.state.calendar}
-                renderItem={({ item }) => (
-                  <View style={styles.activityContainer}>
-                    <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.description}>
-                      {VALUES.DATE + item.date}
-                    </Text>
-                    <Text style={styles.description}>
-                      {VALUES.DESCRIPTION + item.description}
-                    </Text>
-                    <Text style={styles.description}>
-                      {VALUES.PLACE + item.place}
-                    </Text>
-                  </View>
-                )}
-                keyExtractor={(item, index) => index.toString()}
-              />
-            </ScrollView>
-          </DialogContent>
-        </Dialog>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({ item }) => (
-            <View style={styles.mainContainer}>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.description}>{item.description}</Text>
-              <Image
-                source={{
-                  uri: VALUES.URL + item.image.url.substring(1)
+          <Text style={styles.buttonText}>{BUTTONS.CALENDAR}</Text>
+        </TouchableOpacity>
+        <ScrollView>
+          <Dialog
+            visible={this.state.visible}
+            footer={
+              <DialogButton
+                text="OK"
+                onPress={() => {
+                  this.setState({ visible: false });
                 }}
-                resizeMode={"cover"}
-                style={styles.image}
               />
-            </View>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </ScrollView>
+            }
+            onTouchOutside={() => {
+              this.setState({ visible: false });
+            }}
+            dialogAnimation={
+              new SlideAnimation({
+                slideFrom: "bottom"
+              })
+            }
+            dialogTitle={<DialogTitle title={BUTTONS.CALENDAR} />}
+          >
+            <DialogContent style={styles.dialogContainer}>
+              <ScrollView>
+                <FlatList
+                  data={this.state.calendar}
+                  renderItem={({ item }) => (
+                    <View style={styles.activityContainer}>
+                      <Text style={styles.title}>{item.title}</Text>
+                      <Text style={styles.description}>
+                        {VALUES.DATE + item.date}
+                      </Text>
+                      <Text style={styles.description}>
+                        {VALUES.DESCRIPTION + item.description}
+                      </Text>
+                      <Text style={styles.description}>
+                        {VALUES.PLACE + item.place}
+                      </Text>
+                    </View>
+                  )}
+                  keyExtractor={(item, index) => index.toString()}
+                />
+              </ScrollView>
+            </DialogContent>
+          </Dialog>
+          <FlatList
+            data={this.state.dataSource}
+            renderItem={({ item }) => (
+              <View style={styles.mainContainer}>
+                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.description}>{item.description}</Text>
+                <Image
+                  source={{
+                    uri: VALUES.URL + item.image.url.substring(1)
+                  }}
+                  resizeMode={"cover"}
+                  style={styles.image}
+                />
+              </View>
+            )}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -147,6 +150,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "80%"
   },
+  buttonContainer: commonStyles.buttonContainer,
+  buttonText: commonStyles.buttonText,
   activityContainer: {
     backgroundColor: colors.white,
     marginBottom: 5
