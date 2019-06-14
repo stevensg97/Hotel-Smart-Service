@@ -1,9 +1,9 @@
 {
   "connection": "default",
-  "collectionName": "rooms",
+  "collectionName": "roooms",
   "info": {
     "name": "room",
-    "description": "Information of hotel rooms."
+    "description": "Room information of the hotel"
   },
   "options": {
     "increments": true,
@@ -30,6 +30,10 @@
     },
     "maxCapacity": {
       "type": "integer"
+    },
+    "book": {
+      "model": "book",
+      "via": "roooms"
     }
   }
 }

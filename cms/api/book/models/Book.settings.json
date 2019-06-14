@@ -11,14 +11,6 @@
     "comment": ""
   },
   "attributes": {
-    "checkin": {
-      "required": true,
-      "type": "date"
-    },
-    "checkout": {
-      "required": true,
-      "type": "date"
-    },
     "adults": {
       "type": "integer",
       "required": true
@@ -52,10 +44,20 @@
     "guestComentary": {
       "type": "text"
     },
-    "guestArrivalTime": {
-      "type": "date"
-    },
     "guestOrganization": {
+      "type": "string"
+    },
+    "roooms": {
+      "collection": "room",
+      "via": "book"
+    },
+    "checkin": {
+      "type": "string"
+    },
+    "checkout": {
+      "type": "string"
+    },
+    "guestArrivalTime": {
       "type": "string"
     }
   }
