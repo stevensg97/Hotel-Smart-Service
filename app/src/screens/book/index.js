@@ -55,20 +55,21 @@ export default class Book extends Component {
       let response = await fetch(
         "https://api.darksky.net/forecast/0be8cbfb2f4e6ca5c7a8987433891817/10.30111210,-85.840859," +
           millisecondsDate +
-          "?lang=en"
+          "?lang=" +
+          this.props.navigation.state.params.lang
       );
       let responseJson = await response.json();
       Alert.alert(
-        VALUES.WEATHER,
+        i18n.t("VALUES.WEATHER"),
         responseJson.currently.summary,
-        [{ text: BUTTONS.OK }],
+        [{ text: i18n.t("BUTTONS.OK") }],
         { cancelable: false }
       );
     } catch (error) {
       Alert.alert(
-        BUTTONS.CHECK_WEATHER,
-        ALERTS.FAILURE,
-        [{ text: BUTTONS.OK }],
+        i18n.t("BUTTONS.CHECK_WEATHER"),
+        i18n.t("ALERTS.FAILURE"),
+        [{ text: i18n.t("BUTTONS.OK") }],
         {
           cancelable: false
         }
