@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import {
-  ScrollView,
   Image,
   Text,
   View,
   StyleSheet,
-  FlatList,
   TouchableOpacity,
   KeyboardAvoidingView,
   Alert,
@@ -21,15 +19,9 @@ import Dialog, {
   SlideAnimation,
   DialogContent
 } from "react-native-popup-dialog";
+import i18n from "../../config/i18n";
 import DatePicker from "react-native-datepicker";
-import {
-  SCREENS,
-  VALUES,
-  BUTTONS,
-  ALERTS,
-  PLACEHOLDERS,
-  OPTIONS_SCREENS
-} from "../../config/constants";
+import { SCREENS, VALUES, BUTTONS, ALERTS } from "../../config/constants";
 import IconLogo from "../../assets/logo.png";
 import { colors, commonStyles } from "../../config/styles";
 
@@ -140,8 +132,14 @@ export default class Book extends Component {
 
   _onSignInPressed = () => {
     this.setState({ visibleBook: false });
-    this.props.navigation.navigate(SCREENS.SIGNIN);
+    this.props.navigation.navigate(SCREENS.SIGNIN, {
+      lang: this.props.navigation.state.params.lang
+    });
   };
+
+  componentDidMount() {
+    i18n.locale = this.props.navigation.state.params.lang;
+  }
 
   render() {
     const spinner = this.state.isLoading ? (
@@ -153,20 +151,22 @@ export default class Book extends Component {
           onPress={() => this._onCheckWeatherPressed()}
           style={styles.buttonContainer}
         >
-          <Text style={styles.buttonText}>{BUTTONS.CHECK_WEATHER}</Text>
+          <Text style={styles.buttonText}>
+            {i18n.t("BUTTONS.CHECK_WEATHER")}
+          </Text>
         </TouchableOpacity>
         <Dialog
           visible={this.state.visibleCheckWeather}
           footer={
             <DialogFooter>
               <DialogButton
-                text="Cancel"
+                text={i18n.t("BUTTONS.CANCEL")}
                 onPress={() => {
                   this.setState({ visibleCheckWeather: false });
                 }}
               />
               <DialogButton
-                text="Check"
+                text={i18n.t("BUTTONS.CHECK")}
                 onPress={() => {
                   this._onCheckPressed();
                 }}
@@ -181,20 +181,20 @@ export default class Book extends Component {
               slideFrom: "bottom"
             })
           }
-          dialogTitle={<DialogTitle title={BUTTONS.CHECK_WEATHER} />}
+          dialogTitle={<DialogTitle title={i18n.t("BUTTONS.CHECK_WEATHER")} />}
         >
           <DialogContent style={styles.dialogContainer}>
-            <Text style={styles.title}>{VALUES.SELECT_DATE}</Text>
+            <Text style={styles.title}>{i18n.t("VALUES.SELECT_DATE")}</Text>
             <DatePicker
               style={styles.datePicker}
               date={this.state.date}
               mode={VALUES.DATE_MODE}
-              placeholder={PLACEHOLDERS.DATE}
+              placeholder={i18n.t("PLACEHOLDERS.DATE")}
               format={VALUES.DATE_FORMAT}
               minDate={VALUES.MIN_DATE}
               maxDate={VALUES.MAX_DATE}
-              confirmBtnText={BUTTONS.CONFIRM}
-              cancelBtnText={BUTTONS.CANCEL}
+              confirmBtnText={i18n.t("BUTTONS.CONFIRM")}
+              cancelBtnText={i18n.t("BUTTONS.CANCEL")}
               customStyles={{
                 dateIcon: styles.dateIcon,
                 dateInput: styles.dateInput
@@ -209,20 +209,20 @@ export default class Book extends Component {
           onPress={() => this._onBookPressed()}
           style={styles.buttonContainer}
         >
-          <Text style={styles.buttonText}>{BUTTONS.BOOK}</Text>
+          <Text style={styles.buttonText}>{i18n.t("BUTTONS.BOOK")}</Text>
         </TouchableOpacity>
         <Dialog
           visible={this.state.visibleBook}
           footer={
             <DialogFooter>
               <DialogButton
-                text="Cancel"
+                text={i18n.t("BUTTONS.CANCEL")}
                 onPress={() => {
                   this.setState({ visibleBook: false });
                 }}
               />
               <DialogButton
-                text="Accept"
+                text={i18n.t("BUTTONS.ACCEPT")}
                 onPress={() => {
                   this._onLoginPressed();
                 }}
@@ -237,7 +237,7 @@ export default class Book extends Component {
               slideFrom: "bottom"
             })
           }
-          dialogTitle={<DialogTitle title={BUTTONS.LOGIN} />}
+          dialogTitle={<DialogTitle title={i18n.t("BUTTONS.LOGIN")} />}
         >
           <DialogContent style={styles.dialogContainer}>
             <KeyboardAvoidingView
@@ -264,14 +264,14 @@ export default class Book extends Component {
                     onChange={this._onLoginTextChangedEmail}
                     underlineColorAndroid={colors.transparent}
                     returnKeyType="next"
-                    placeholder={PLACEHOLDERS.EMAIL}
+                    placeholder={i18n.t("PLACEHOLDERS.EMAIL")}
                     placeholderTextColor={colors.placeholderColor}
                   />
                   <TextInput
                     style={styles.input}
                     returnKeyType="go"
                     ref={input => (this.passwordInput = input)}
-                    placeholder={PLACEHOLDERS.PASSWORD}
+                    placeholder={i18n.t("PLACEHOLDERS.PASSWORD")}
                     value={this.state.passwordString}
                     onChange={this._onLoginTextChangedPassword}
                     underlineColorAndroid={colors.transparent}
@@ -280,7 +280,9 @@ export default class Book extends Component {
                   />
                   <View style={styles.containerLink}>
                     <TouchableOpacity onPress={this._onSignInPressed}>
-                      <Text style={styles.textLink}>{BUTTONS.SIGNIN}</Text>
+                      <Text style={styles.textLink}>
+                        {i18n.t("BUTTONS.SIGNIN")}
+                      </Text>
                     </TouchableOpacity>
                   </View>
                   {spinner}

@@ -9,8 +9,8 @@ import {
   TouchableOpacity,
   Linking
 } from "react-native";
-
-import { SCREENS, VALUES } from "../../config/constants";
+import i18n from "../../config/i18n";
+import { SCREENS } from "../../config/constants";
 import { colors } from "../../config/styles";
 import IconLogo from "../../assets/logo.png";
 
@@ -24,6 +24,7 @@ export default class Contact extends Component {
   }
 
   componentDidMount() {
+    i18n.locale = this.props.navigation.state.params.lang;
     let items = this.props.navigation.state.params.results;
     this.setState({
       dataSource: items
@@ -45,7 +46,9 @@ export default class Contact extends Component {
                 style={styles.mainContainer}
                 onPress={() => Linking.openURL(item.webpage)}
               >
-                <Text style={styles.description}>{VALUES.WEBPAGE}</Text>
+                <Text style={styles.description}>
+                  {i18n.t("VALUES.WEBPAGE")}
+                </Text>
                 <Image
                   source={IconLogo}
                   resizeMode={"cover"}

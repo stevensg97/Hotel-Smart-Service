@@ -22,17 +22,15 @@ export const commonStyles = {
     textAlign: 'center',
   },
   selectedButtonContainer: {
-    alignSelf: 'center',
     backgroundColor: colors.white,
     borderWidth: 0.5,
-    borderColor: colors.black,
+    borderColor: colors.deepgreen,
     borderRadius: 15,
     margin: 5,
-    paddingVertical: 5,
-    width: 100,
+    paddingVertical: 15
   },
   selectedButtonText: {
-    color: colors.black,
+    color: colors.deepgreen,
     fontWeight: '700',
     textAlign: 'center',
   },

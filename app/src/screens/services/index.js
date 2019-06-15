@@ -10,7 +10,7 @@ import {
   Alert,
   ActivityIndicator,
 } from "react-native";
-
+import i18n from "../../config/i18n";
 import { SCREENS, VALUES, OPTIONS_SCREENS, ALERTS, BUTTONS } from "../../config/constants";
 import { colors } from "../../config/styles";
 
@@ -52,6 +52,7 @@ export default class Services extends Component {
   };
 
   componentDidMount() {
+    i18n.locale = this.props.navigation.state.params.lang;
     let array = this.props.navigation.state.params.results;
     let items = Array.apply(null, Array(array.length)).map((v, i) => {
       return {
@@ -80,7 +81,7 @@ export default class Services extends Component {
               onPress={() => this._onOptionPressed(item.optionScreen)}
             >
               <View style={styles.mainContainer}>
-                <Text style={styles.title}>{item.type}</Text>
+                <Text style={styles.title}>{i18n.t("TYPE."+item.type)}</Text>
                 <Image
                   source={{
                     uri: VALUES.URL + item.image.url.substring(1)

@@ -5,19 +5,18 @@ import {
   Text,
   View,
   StyleSheet,
-  FlatList,
   TouchableOpacity,
   KeyboardAvoidingView,
   Alert,
   ActivityIndicator,
-  StatusBar,
   TextInput
 } from "react-native";
-import { Constants, ImagePicker, Permissions } from "expo";
+import i18n from "../../config/i18n";
+import { ImagePicker, Permissions } from "expo";
 import uuid from "uuid";
 import Environment from "../../config/environment";
 import firebase from "../../utils/firebase";
-import { SCREENS, VALUES, BUTTONS, ALERTS } from "../../config/constants";
+import { SCREENS, VALUES } from "../../config/constants";
 import { colors, commonStyles } from "../../config/styles";
 
 console.disableYellowBox = true;
@@ -38,6 +37,7 @@ export default class CreateExperience extends Component {
   }
 
   async componentDidMount() {
+    i18n.locale = this.props.navigation.state.params.lang;
     await Permissions.askAsync(Permissions.CAMERA_ROLL);
     await Permissions.askAsync(Permissions.CAMERA);
   }
@@ -70,9 +70,14 @@ export default class CreateExperience extends Component {
       this.props.navigation.navigate(SCREENS.HOME);
     } catch (error) {
       this.setState({ isLoading: false });
-      Alert.alert(BUTTONS.SIGNIN, ALERTS.FAILURE, [{ text: BUTTONS.OK }], {
-        cancelable: false
-      });
+      Alert.alert(
+        i18n.t("BUTTONS.SIGNIN"),
+        i18n.t("ALERTS.FAILURE"),
+        [{ text: i18n.t("BUTTONS.OK") }],
+        {
+          cancelable: false
+        }
+      );
     }
   };
 
@@ -86,7 +91,7 @@ export default class CreateExperience extends Component {
       }
     } catch (e) {
       console.log(e);
-      alert("Upload failed, sorry.");
+      alert(i18n.t("ALERTS.UPLOAD_FAILED"));
     } finally {
       this.setState({ uploading: false });
     }
@@ -146,9 +151,14 @@ export default class CreateExperience extends Component {
     } catch (error) {
       console.log(error);
       this.setState({ isLoading: false });
-      Alert.alert(VALUES.ERROR, ALERTS.FAILURE, [{ text: BUTTONS.OK }], {
-        cancelable: false
-      });
+      Alert.alert(
+        i18n.t("VALUES.ERROR"),
+        i18n.t("ALERTS.FAILURE"),
+        [{ text: i18n.t("BUTTONS.OK") }],
+        {
+          cancelable: false
+        }
+      );
     }
   };
 
@@ -161,7 +171,9 @@ export default class CreateExperience extends Component {
       <ScrollView>
         <KeyboardAvoidingView behavior="padding">
           <View style={styles.mainContainer}>
-            <Text style={styles.title}>Type a comentary</Text>
+            <Text style={styles.title}>
+              {i18n.t("PLACEHOLDERS.TYPE_COMENTARY")}
+            </Text>
             <TextInput
               style={styles.input}
               multiline={true}
@@ -173,9 +185,11 @@ export default class CreateExperience extends Component {
               onChange={this._onComentaryTextChanged}
               underlineColorAndroid={colors.transparent}
               returnKeyType="done"
-              placeholder="Type a comentary"
+              placeholder={i18n.t("PLACEHOLDERS.TYPE_COMENTARY")}
             />
-            <Text style={styles.title}>Upload a selfie</Text>
+            <Text style={styles.title}>
+              {i18n.t("PLACEHOLDERS.UPLOAD_SELFIE")}
+            </Text>
 
             <Image
               source={{ uri: this.state.image }}
@@ -188,21 +202,25 @@ export default class CreateExperience extends Component {
                 style={styles.buttonContainer}
                 onPress={this._takePhoto}
               >
-                <Text style={styles.buttonText}>Take a photo</Text>
+                <Text style={styles.buttonText}>
+                  {i18n.t("PLACEHOLDERS.TAKE_PHOTO")}
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.buttonContainer}
                 onPress={this._pickImage}
               >
                 <Text style={styles.buttonText}>
-                  Pick an image from camera roll
+                  {i18n.t("PLACEHOLDERS.PICK_IMAGE")}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.buttonContainer}
                 onPress={this.submitToGoogle}
               >
-                <Text style={styles.buttonText}>Accept</Text>
+                <Text style={styles.buttonText}>
+                  {i18n.t("BUTTONS.ACCEPT")}
+                </Text>
               </TouchableOpacity>
             </View>
           </View>

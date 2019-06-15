@@ -8,7 +8,7 @@ import {
   FlatList
 } from "react-native";
 
-import { SCREENS, VALUES, OPTIONS } from "../../config/constants";
+import { SCREENS, VALUES } from "../../config/constants";
 import { colors } from "../../config/styles";
 
 export default class Beaches extends Component {

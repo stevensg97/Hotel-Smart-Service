@@ -20,12 +20,10 @@ import Dialog, {
   SlideAnimation,
   DialogContent
 } from "react-native-popup-dialog";
+import i18n from "../../config/i18n";
 import {
   SCREENS,
   VALUES,
-  BUTTONS,
-  ALERTS,
-  PLACEHOLDERS,
   OPTIONS_SCREENS
 } from "../../config/constants";
 import IconLogo from "../../assets/logo.png";
@@ -64,14 +62,15 @@ export default class Experiences extends Component {
           this.setState({ visible: false });
           this.props.navigation.navigate(OPTIONS_SCREENS.CREATE_EXPERIENCE, {
             name: responseJson[i].name,
-            lastname: responseJson[i].lastname
+            lastname: responseJson[i].lastname,
+            lang: this.props.navigation.state.params.lang
           });
           this.setState({ emailString: "" });
           this.setState({ passwordString: "" });
           break;
         } else if (i + 1 == responseJson.length) {
           this.setState({ isLoading: false });
-          Alert.alert(SCREENS.LOGIN, ALERTS.WRONG, [{ text: BUTTONS.OK }], {
+          Alert.alert(i18n.t("SCREENS.LOGIN"), i18n.t("ALERTS.WRONG"), [{ text: i18n.t("BUTTONS.OK") }], {
             cancelable: false
           });
         }
@@ -79,7 +78,7 @@ export default class Experiences extends Component {
     } catch (error) {
       console.log(error);
       this.setState({ isLoading: false });
-      Alert.alert(SCREENS.LOGIN, ALERTS.FAILURE, [{ text: BUTTONS.OK }], {
+      Alert.alert(i18n.t("SCREENS.LOGIN"), i18n.t("ALERTS.FAILURE"), [{ text: i18n.t("BUTTONS.OK") }], {
         cancelable: false
       });
     }
@@ -99,10 +98,11 @@ export default class Experiences extends Component {
 
   _onSignInPressed = () => {
     this.setState({ visible: false });
-    this.props.navigation.navigate(SCREENS.SIGNIN);
+    this.props.navigation.navigate(SCREENS.SIGNIN, {lang: this.props.navigation.state.params.lang});
   };
 
   componentDidMount() {
+    i18n.locale = this.props.navigation.state.params.lang;
     let items = this.props.navigation.state.params.results;
     for (let i = 0; i < items.length; i++) {
       if (items[i].rating == "UNKNOWN" || items[i].rating == "VERY_UNLIKELY") {
@@ -133,20 +133,20 @@ export default class Experiences extends Component {
             onPress={() => this._onCreateExperiencePressed()}
             style={styles.buttonContainer}
           >
-            <Text style={styles.buttonText}>{BUTTONS.CREATE_EXPERIENCE}</Text>
+            <Text style={styles.buttonText}>{i18n.t("BUTTONS.CREATE_EXPERIENCE")}</Text>
           </TouchableOpacity>
           <Dialog
             visible={this.state.visible}
             footer={
               <DialogFooter>
                 <DialogButton
-                  text="Cancel"
+                  text={i18n.t("BUTTONS.CANCEL")}
                   onPress={() => {
                     this.setState({ visible: false });
                   }}
                 />
                 <DialogButton
-                  text="Accept"
+                  text={i18n.t("BUTTONS.ACCEPT")}
                   onPress={() => {
                     this._onLoginPressed();
                   }}
@@ -161,7 +161,7 @@ export default class Experiences extends Component {
                 slideFrom: "bottom"
               })
             }
-            dialogTitle={<DialogTitle title={BUTTONS.LOGIN} />}
+            dialogTitle={<DialogTitle title={i18n.t("BUTTONS.LOGIN")} />}
           >
             <DialogContent style={styles.dialogContainer}>
               <KeyboardAvoidingView
@@ -188,14 +188,14 @@ export default class Experiences extends Component {
                       onChange={this._onLoginTextChangedEmail}
                       underlineColorAndroid={colors.transparent}
                       returnKeyType="next"
-                      placeholder={PLACEHOLDERS.EMAIL}
+                      placeholder={i18n.t("PLACEHOLDERS.EMAIL")}
                       placeholderTextColor={colors.placeholderColor}
                     />
                     <TextInput
                       style={styles.input}
                       returnKeyType="go"
                       ref={input => (this.passwordInput = input)}
-                      placeholder={PLACEHOLDERS.PASSWORD}
+                      placeholder={i18n.t("PLACEHOLDERS.PASSWORD")}
                       value={this.state.passwordString}
                       onChange={this._onLoginTextChangedPassword}
                       underlineColorAndroid={colors.transparent}
@@ -204,7 +204,7 @@ export default class Experiences extends Component {
                     />
                     <View style={styles.containerLink}>
                       <TouchableOpacity onPress={this._onSignInPressed}>
-                        <Text style={styles.textLink}>{BUTTONS.SIGNIN}</Text>
+                        <Text style={styles.textLink}>{i18n.t("BUTTONS.SIGNIN")}</Text>
                       </TouchableOpacity>
                     </View>
                     {spinner}
@@ -226,7 +226,7 @@ export default class Experiences extends Component {
                   {'"' + item.comentary + '"'}
                 </Text>
                 <Text style={styles.description}>
-                  {VALUES.RATING + item.rating}
+                  {i18n.t("VALUES.RATING") + item.rating}
                 </Text>
                 <Image
                   source={{

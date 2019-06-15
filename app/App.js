@@ -38,7 +38,7 @@ const App = createStackNavigator({
   Rooms: {screen: RoomsScreen},
   Activities: {screen: ActivitiesScreen},
   SignIn: {screen: SignInScreen},
-  CreateExperience: {screen: CreateExperienceScreen},
+  CreateExperience: {screen: CreateExperienceScreen}
 })
 
 export default App

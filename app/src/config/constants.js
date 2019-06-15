@@ -35,6 +35,11 @@ export const BUTTONS = {
   BOOK: 'Book',
 }
 
+export const LANGUAGES = {
+  EN: 'English',
+  ES: 'Spanish'
+}
+
 export const NUMBER_OF_COLUMNS = 2;
 
 export const OPTIONS = {
@@ -54,7 +59,8 @@ export const OPTIONS = {
   BOOK: "Book",
   EXPERIENCES: "Experiences",
   CONTACT: "Contact",
-  ACTIVITIES: "Activities"
+  ACTIVITIES: "Activities",
+  LANGUAGES: "Languages"
 }
 
 export const OPTIONS_SCREENS = {
@@ -76,7 +82,8 @@ export const OPTIONS_SCREENS = {
   EXPERIENCES: "Experiences",
   CONTACT: "Contact",
   ACTIVITIES: "Activities",
-  CREATE_EXPERIENCE: "CreateExperience"
+  CREATE_EXPERIENCE: "CreateExperience",
+  LANGUAGES: "Languages",
 }
 
 export const PLACEHOLDERS = {
@@ -110,6 +117,7 @@ export const SCREENS = {
   CONTACT: "Contact",
   ACTIVITIES: "Activities",
   CREATE_EXPERIENCE: 'Create Experience',
+  LANGUAGES: "Languages",
   SHOWER: "Smart Shower",
   SETTINGS: "Settings",
   STATISTICS: "Statistics",

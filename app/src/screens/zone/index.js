@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { ScrollView, Image, Text, View, StyleSheet, FlatList } from "react-native";
+import {
+  ScrollView,
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  FlatList
+} from "react-native";
 
 import { SCREENS, VALUES } from "../../config/constants";
 import { colors } from "../../config/styles";
@@ -31,9 +38,9 @@ export default class Zone extends Component {
               <Text style={styles.description}>{item.description}</Text>
               <Image
                 source={{
-                  uri: VALUES.URL+item.image.url.substring(1)
+                  uri: VALUES.URL + item.image.url.substring(1)
                 }}
-                resizeMode={'cover'}
+                resizeMode={"cover"}
                 style={styles.image}
               />
             </View>
@@ -62,7 +69,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 200
   }
 });

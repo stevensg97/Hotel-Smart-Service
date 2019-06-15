@@ -1,0 +1,103 @@
+{
+  "OPTIONS_SCREENS": {
+    "HOME": "Inicio",
+    "INFORMATION": "Información",
+    "ROOMS": "Habitaciones",
+    "SERVICES": "Servicios",
+    "AIRPORTS": "Aeropuertos",
+    "CASINOS": "Casinos",
+    "BEACHES": "Playas",
+    "GROUPS": "Grupos",
+    "POOLS": "Piscinas",
+    "RESTAURANTS": "Restaurantes",
+    "ZONE": "Zona",
+    "NETWORKS": "Redes Sociales",
+    "BOOK": "Reservación",
+    "EXPERIENCES": "Experiencias",
+    "CONTACT": "Contacto",
+    "ACTIVITIES": "Actividades",
+    "CREATE_EXPERIENCE": "CrearExperiencia",
+    "LANGUAGES": "Lenguages"
+  },
+  "OPTIONS": {
+    "Information": "Información",
+    "Rooms": "Habitaciones",
+    "Services": "Servicios",
+    "Airports": "Aeropuertos",
+    "Casinos": "Casinos",
+    "Beaches": "Playas",
+    "Groups": "Grupos",
+    "Pools": "Piscinas",
+    "Restaurants": "Restaurantes",
+    "Zone Info": "Información de Zona",
+    "Social Networks": "Redes Sociales",
+    "Book": "Reservación",
+    "Experiences": "Experiencias",
+    "Contact": "Contacto",
+    "Activities": "Actividades",
+    "Languages": "Lenguajes"
+  },
+  "TYPE": {
+    "Airport": "Aeropuerto",
+    "Casino": "Casino",
+    "Beach": "Playa",
+    "Group": "Grupo",
+    "Pool": "Piscina",
+    "Restaurant": "Restaurante"
+  },
+  "BUTTONS": {
+    "LOGIN": "Iniciar Sesión",
+    "SIGNIN": "Registrarse",
+    "FORGOT": "¿Olvidó su contraseña?",
+    "LANGUAGE": "Lenguaje",
+    "CREATE_EXPERIENCE": "Publicar Experiencia",
+    "CALENDAR": "Calendario",
+    "DONE": "Hecho",
+    "CANCEL": "Cancelar",
+    "ACCEPT": "Aceptar",
+    "OK": "Listo",
+    "CHECK_WEATHER": "Revisar Clima",
+    "CHECK": "Revisar",
+    "BOOK": "Reservar"
+  },
+  "LANGUAGES": {
+    "EN": "Inglés",
+    "ES": "Español"
+  },
+  "VALUES": {
+    "WEBPAGE": "Página Web",
+    "DATE": "Fecha: ",
+    "DESCRIPTION": "Descripción: ",
+    "PLACE": "Lugar: ",
+    "INFORMATION": "Información",
+    "AIRPORT": "Aeropuerto",
+    "CASINO": "Casino",
+    "BEACH": "Playa",
+    "GROUP": "Grupo",
+    "POOL": "Piscina",
+    "RESTAURANT": "Restaurante",
+    "ERROR": "Error",
+    "RATING": "Calificación: ",
+    "SELECT_DATE": "Seleccione la fecha",
+    "WEATHER": "Clima"
+  },
+  "PLACEHOLDERS": {
+    "NAME": "Nombre",
+    "LASTNAME": "Apellido",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "CHECK_PASSWORD": "Comprobar contraseña",
+    "DATE": "Fecha",
+    "TYPE_COMENTARY": "Escribe un comentario",
+    "UPLOAD_SELFIE": "Sube un selfie",
+    "TAKE_PHOTO": "Toma una foto",
+    "PICK_IMAGE": "Selecciona una foto de la galería"
+  },
+  "ALERTS": {
+    "WRONG": "Usuario o contraseña incorrecto.",
+    "PASSWORD_NOT_MATCH": "La contraseña no coincide.",
+    "SIGNIN_SUCCESS": "Usuario creado satisfactoriamente.",
+    "FAILURE": "Algo salió mal, inténtelo de nuevo.",
+    "UPLOAD_FAILED": "Fallo al subir imagen, lo sentimos."
+  }
+}

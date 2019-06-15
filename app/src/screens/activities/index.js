@@ -15,7 +15,8 @@ import Dialog, {
   SlideAnimation,
   DialogContent
 } from "react-native-popup-dialog";
-import { SCREENS, VALUES, BUTTONS, ALERTS } from "../../config/constants";
+import i18n from "../../config/i18n";
+import { SCREENS, VALUES } from "../../config/constants";
 import { colors, commonStyles } from "../../config/styles";
 
 export default class Activities extends Component {
@@ -47,13 +48,19 @@ export default class Activities extends Component {
       this.setState({ calendar: array });
       this.setState({ visible: true });
     } catch (error) {
-      Alert.alert(BUTTONS.CALENDAR, ALERTS.FAILURE, [{ text: BUTTONS.OK }], {
-        cancelable: false
-      });
+      Alert.alert(
+        i18n.t("BUTTONS.CALENDAR"),
+        i18n.t("ALERTS.FAILURE"),
+        [{ text: i18n.t("BUTTONS.OK") }],
+        {
+          cancelable: false
+        }
+      );
     }
   };
 
   componentDidMount() {
+    i18n.locale = this.props.navigation.state.params.lang;
     let items = this.props.navigation.state.params.results;
     this.setState({
       dataSource: items
@@ -67,14 +74,14 @@ export default class Activities extends Component {
           onPress={() => this._onCalendarPressed()}
           style={styles.buttonContainer}
         >
-          <Text style={styles.buttonText}>{BUTTONS.CALENDAR}</Text>
+          <Text style={styles.buttonText}>{i18n.t("BUTTONS.CALENDAR")}</Text>
         </TouchableOpacity>
         <ScrollView>
           <Dialog
             visible={this.state.visible}
             footer={
               <DialogButton
-                text="OK"
+                text={i18n.t("BUTTONS.OK")}
                 onPress={() => {
                   this.setState({ visible: false });
                 }}
@@ -88,7 +95,7 @@ export default class Activities extends Component {
                 slideFrom: "bottom"
               })
             }
-            dialogTitle={<DialogTitle title={BUTTONS.CALENDAR} />}
+            dialogTitle={<DialogTitle title={i18n.t("BUTTONS.CALENDAR")} />}
           >
             <DialogContent style={styles.dialogContainer}>
               <ScrollView>

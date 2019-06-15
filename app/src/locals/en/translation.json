@@ -1,0 +1,103 @@
+{
+  "OPTIONS_SCREENS": {
+    "HOME": "Home",
+    "INFORMATION": "Information",
+    "ROOMS": "Rooms",
+    "SERVICES": "Services",
+    "AIRPORTS": "Airports",
+    "CASINOS": "Casinos",
+    "BEACHES": "Beaches",
+    "GROUPS": "Groups",
+    "POOLS": "Pools",
+    "RESTAURANTS": "Restaurants",
+    "ZONE": "Zone",
+    "NETWORKS": "Networks",
+    "BOOK": "Book",
+    "EXPERIENCES": "Experiences",
+    "CONTACT": "Contact",
+    "ACTIVITIES": "Activities",
+    "CREATE_EXPERIENCE": "CreateExperience",
+    "LANGUAGES": "Languages"
+  },
+  "OPTIONS": {
+    "Information": "Information",
+    "Rooms": "Rooms",
+    "Services": "Services",
+    "Airports": "Airports",
+    "Casinos": "Casinos",
+    "Beaches": "Beaches",
+    "Groups": "Groups",
+    "Pools": "Pools",
+    "Restaurants": "Restaurants",
+    "Zone Info": "Zone Info",
+    "Social Networks": "Social Networks",
+    "Book": "Book",
+    "Experiences": "Experiences",
+    "Contact": "Contact",
+    "Activities": "Activities",
+    "Languages": "Languages"
+  },
+  "TYPE": {
+    "Airport": "Airport",
+    "Casino": "Casino",
+    "Beach": "Beach",
+    "Group": "Group",
+    "Pool": "Pool",
+    "Restaurant": "Restaurant"
+  },
+  "BUTTONS": {
+    "LOGIN": "Login",
+    "SIGNIN": "Sign In",
+    "FORGOT": "Forgot your password?",
+    "LANGUAGE": "Language",
+    "CREATE_EXPERIENCE": "Publish Experience",
+    "CALENDAR": "Calendar",
+    "DONE": "Done",
+    "CANCEL": "Cancel",
+    "ACCEPT": "Accept",
+    "OK": "OK",
+    "CHECK_WEATHER": "Check Weather",
+    "CHECK": "Check",
+    "BOOK": "Book"
+  },
+  "LANGUAGES": {
+    "EN": "English",
+    "ES": "Spanish"
+  },
+  "VALUES": {
+    "WEBPAGE": "Web Page",
+    "DATE": "Date: ",
+    "DESCRIPTION": "Description: ",
+    "PLACE": "Place: ",
+    "INFORMATION": "information",
+    "AIRPORT": "Airport",
+    "CASINO": "Casino",
+    "BEACH": "Beach",
+    "GROUP": "Group",
+    "POOL": "Pool",
+    "RESTAURANT": "Restaurant",
+    "ERROR": "Error",
+    "RATING": "Rating: ",
+    "SELECT_DATE": "Select the date to consult",
+    "WEATHER": "Weather"
+  },
+  "PLACEHOLDERS": {
+    "NAME": "Name",
+    "LASTNAME": "Lastname",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CHECK_PASSWORD": "Check password",
+    "DATE": "Date",
+    "TYPE_COMENTARY": "Type a comentary",
+    "UPLOAD_SELFIE": "Upload a selfie",
+    "TAKE_PHOTO": "Take a photo",
+    "PICK_IMAGE": "Pick an image from camera roll"
+  },
+  "ALERTS": {
+    "WRONG": "Wrong user or password.",
+    "PASSWORD_NOT_MATCH": "Password does not match.",
+    "SIGNIN_SUCCESS": "User created successfully.",
+    "FAILURE": "Something went wrong, try again.",
+    "UPLOAD_FAILED": "Upload failed, sorry."
+  }
+}
